@@ -11,5 +11,24 @@
            xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy"
            xmlns:ui="http://xmlns.oracle.com/soa/designer/"
            xmlns:sca-ext="http://xmlns.oracle.com/sca/1.0-ext">
+  <import namespace="http://xmlns.oracle.com/MySoaCICDApp/MySoaCICDApp/MySoaCICD_BpelProcess"
+          location="WSDLs/MySoaCICD_BpelProcess.wsdl" importType="wsdl"/>
+  <service name="mysoacicd_bpelprocess_client_ep" ui:wsdlLocation="WSDLs/MySoaCICD_BpelProcess.wsdl">
+    <interface.wsdl interface="http://xmlns.oracle.com/MySoaCICDApp/MySoaCICDApp/MySoaCICD_BpelProcess#wsdl.interface(MySoaCICD_BpelProcess)"/>
+    <binding.ws port="http://xmlns.oracle.com/MySoaCICDApp/MySoaCICDApp/MySoaCICD_BpelProcess#wsdl.endpoint(mysoacicd_bpelprocess_client_ep/MySoaCICD_BpelProcess_pt)"/>
+  </service>
   <property name="productVersion" type="xs:string" many="false">12.1.3.0.0</property>
+  <component name="MySoaCICD_BpelProcess" version="2.0">
+    <implementation.bpel src="BPEL/MySoaCICD_BpelProcess.bpel"/>
+    <componentType>
+      <service name="mysoacicd_bpelprocess_client" ui:wsdlLocation="WSDLs/MySoaCICD_BpelProcess.wsdl">
+        <interface.wsdl interface="http://xmlns.oracle.com/MySoaCICDApp/MySoaCICDApp/MySoaCICD_BpelProcess#wsdl.interface(MySoaCICD_BpelProcess)"/>
+      </service>
+    </componentType>
+    <property name="bpel.config.transaction" type="xs:string" many="false">required</property>
+  </component>
+  <wire>
+    <source.uri>mysoacicd_bpelprocess_client_ep</source.uri>
+    <target.uri>MySoaCICD_BpelProcess/mysoacicd_bpelprocess_client</target.uri>
+  </wire>
 </composite>
