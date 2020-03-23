@@ -62,7 +62,7 @@
     <assign name="Assign1">
       <copy>
         <from>$inputVariable.payload/client:input</from>
-        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload</to>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:result</to>
       </copy>
     </assign>
     <!-- Generate reply to synchronous request -->
