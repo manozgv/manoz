@@ -1,0 +1,12 @@
+2020-03-25 00:06:30,945 WARN  [SoapUI] Missing folder [E:\SOACICDWorkSpace\WorkSpace\MySoaCICD_Demo_App\MySoaCICD_Demo_Prj\ext] for external libraries
+2020-03-25 00:06:30,947 INFO  [DefaultSoapUICore] Creating new settings at [C:\Windows\system32\config\systemprofile\soapui-settings.xml]
+2020-03-25 00:06:32,056 INFO  [PluginManager] 0 plugins loaded in 2 ms
+2020-03-25 00:06:32,056 INFO  [DefaultSoapUICore] All plugins loaded
+2020-03-25 00:06:33,047 INFO  [WsdlProject] Loaded project from [file:/E:/SOACICDWorkSpace/WorkSpace/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD-Demo-BPELProcess-soapui-project.xml]
+2020-03-25 00:06:33,056 INFO  [SoapUITestCaseRunner] Running SoapUI tests in project [MySoaCICD_Demo_BPELProcess]
+2020-03-25 00:06:33,058 INFO  [SoapUITestCaseRunner] Running Project [MySoaCICD_Demo_BPELProcess], runType = SEQUENTIAL
+2020-03-25 00:06:33,094 INFO  [SoapUITestCaseRunner] Running SoapUI testcase [process TestCase]
+2020-03-25 00:06:33,105 INFO  [SoapUITestCaseRunner] running step [process]
+2020-03-25 00:06:33,415 INFO  [SoapUITestCaseRunner] Assertion [Contains] has status VALID
+2020-03-25 00:06:33,420 INFO  [SoapUITestCaseRunner] Finished running SoapUI testcase [process TestCase], time taken: 301ms, status: FINISHED
+2020-03-25 00:06:33,420 INFO  [SoapUITestCaseRunner] Project [MySoaCICD_Demo_BPELProcess] finished with status [FINISHED] in 359ms
