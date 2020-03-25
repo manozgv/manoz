@@ -143,6 +143,8 @@
          <string v=".xml"/>
          <string v=".exm"/>
          <string v=".xml"/>
+         <string v=".exm"/>
+         <string v=".xml"/>
       </list>
       <list n="excludedUrls">
          <string v="fXSLNonDeployedFiles"/>
@@ -303,32 +305,7 @@
             <value n="isJDK" v="false"/>
          </hash>
       </list>
-      <list n="libraryReferences">
-         <hash>
-            <value n="id" v="SOA Designtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="SOA Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BPEL Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Mediator Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="MDS Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Service Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-      </list>
+      <list n="libraryReferences"/>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">
       <url n="outputDirectory" path="SOA/SCA-INF/classes/"/>
