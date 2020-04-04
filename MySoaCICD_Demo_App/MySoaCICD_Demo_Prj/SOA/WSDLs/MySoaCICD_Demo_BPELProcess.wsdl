@@ -14,7 +14,8 @@
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->   
 	<wsdl:types>
 		<schema xmlns="http://www.w3.org/2001/XMLSchema">
-			<import namespace="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess" schemaLocation="../Schemas/MySoaCICD_Demo_BPELProcess.xsd" />
+			<import namespace="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess"
+           schemaLocation="oramds:/apps/Schemas/MySoaCICD_Demo_BPELProcess.xsd" />
 		</schema>
 	</wsdl:types>
 

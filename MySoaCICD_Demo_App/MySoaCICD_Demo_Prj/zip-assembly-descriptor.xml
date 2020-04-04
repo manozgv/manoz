@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+  <id>artifactid_rev</id>
+  <baseDirectory>/</baseDirectory>
+  <formats>
+    <format>jar</format>
+  </formats>
+  <fileSets>
+    <fileSet>
+      <directory>./apps</directory>
+      <outputDirectory>/</outputDirectory>
+      <includes>
+        <include>Schemas/**</include>
+        <!-- As my apps folder had Metadata as sub-folder-->
+      </includes>
+    </fileSet>
+  </fileSets>
+</assembly>
