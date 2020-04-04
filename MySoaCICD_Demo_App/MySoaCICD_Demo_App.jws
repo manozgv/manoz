@@ -25,6 +25,7 @@
    </list>
    <list n="listOfChildren">
       <hash><url n="URL" path="MySoaCICD_Demo_Prj/MySoaCICD_Demo_Prj.jpr"/></hash>
+      <hash><url n="URL" path="MySoaCICD_MDS_Prj/MySoaCICD_MDS_Prj.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.maven.compiler.MavenConfiguration">
       <hash n="oracle.jdeveloper.maven.compiler.MavenConfiguration">
