@@ -6,6 +6,8 @@
   <artifactId>MySoaCICD_Demo_Prj</artifactId>
   <version>1.0</version>
   <packaging>sar</packaging>
+  
+  
   <!--
            This POM was generated from the SOA Maven Archetype.
            Comments in this POM guide you how to use it with your project.
