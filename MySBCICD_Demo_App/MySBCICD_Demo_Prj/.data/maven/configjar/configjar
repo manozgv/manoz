@@ -1,0 +1,7 @@
+#!/bin/sh
+
+. $MVN_CONFIGJAR_HOME/setenv.sh
+JAVA_OPTS="$JAVA_OPTS -Djava.io.tmpdir=$MVN_CONFIGJAR_TMPDIR"
+export JAVA_OPTS
+
+. $MVN_CONFIGJAR_HOME/configjar.sh $*
