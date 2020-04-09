@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/typesystem/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+    <con:coreEntry>
+        <con:binding type="Mixed" xsi:type="con:MixedBindingType">
+            <con:request type="XML">
+                <con1:schema ref="MySBCICD_Demo_Prj/BusinessService/XMLSchema_-1539479661" element="process"/>
+            </con:request>
+            <con:response type="XML">
+                <con1:schema ref="MySBCICD_Demo_Prj/BusinessService/XMLSchema_-1539479661" element="processResponse"/>
+            </con:response>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:flow>
+            <con:route-node name="RouteNode1" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                <con:context>
+                    <con2:userNsDecl prefix="mys" namespace="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess"/>
+                </con:context>
+                <con:actions>
+                    <con1:route>
+                        <con2:id>_ActionId-N3f57c7ff.N394e174b.0.171595258e5.N7fff</con2:id>
+                        <con1:service ref="MySBCICD_Demo_Prj/BusinessService/BusinessService" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>process</con1:operation>
+                        <con1:outboundTransform/>
+                        <con1:responseTransform>
+                            <con3:assign varName="temp" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.N394e174b.0.171595258e5.N7fec</con2:id>
+                                <con3:expr>
+                                    <con2:xqueryText>$body/mys:processResponse/mys:result/text()</con2:xqueryText>
+                                </con3:expr>
+                            </con3:assign>
+                            <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f57c7ff.N394e174b.0.171595258e5.N7fef</con2:id>
+                                <con3:location>
+                                    <con2:xpathText>.</con2:xpathText>
+                                </con3:location>
+                                <con3:expr>
+                                    <con2:xqueryText>&lt;mys:processResponse>&lt;mys:result>{$temp}&lt;/mys:result>&lt;/mys:processResponse></con2:xqueryText>
+                                </con3:expr>
+                            </con3:replace>
+                        </con1:responseTransform>
+                    </con1:route>
+                </con:actions>
+            </con:route-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>
