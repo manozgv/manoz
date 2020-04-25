@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="MySoaCICD_Demo_BPELProcess"
+             targetNamespace="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess"
+             xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	TYPE DEFINITION - List of services participating in this BPEL process
+	The default output of the BPEL designer uses strings as input and 
+	output to the BPEL Process. But you can define or import any XML 
+	Schema type and use them as part of the message types.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->   
+	<wsdl:types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema">
+			<import namespace="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess"
+           schemaLocation="oramds:/apps/Schemas/MySoaCICD_Demo_BPELProcess.xsd" />
+		</schema>
+	</wsdl:types>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	MESSAGE TYPE DEFINITION - Definition of the message types used as 
+	part of the port type defintions
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->      
+	<wsdl:message name="MySoaCICD_Demo_BPELProcessRequestMessage">
+		<wsdl:part name="payload" element="client:process"/>
+	</wsdl:message>
+	<wsdl:message name="MySoaCICD_Demo_BPELProcessResponseMessage">
+		<wsdl:part name="payload" element="client:processResponse"/>
+	</wsdl:message>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	PORT TYPE DEFINITION - A port type groups a set of operations into
+	a logical service unit.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<!-- portType implemented by the MySoaCICD_Demo_BPELProcess BPEL process -->
+	<wsdl:portType name="MySoaCICD_Demo_BPELProcess">
+		<wsdl:operation name="process">
+			<wsdl:input  message="client:MySoaCICD_Demo_BPELProcessRequestMessage" />
+			<wsdl:output message="client:MySoaCICD_Demo_BPELProcessResponseMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	PARTNER LINK TYPE DEFINITION
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> 
+	<plnk:partnerLinkType name="MySoaCICD_Demo_BPELProcess">
+		<plnk:role name="MySoaCICD_Demo_BPELProcessProvider" portType="client:MySoaCICD_Demo_BPELProcess"/>
+	</plnk:partnerLinkType>
+ <wsdl:binding name="MySoaCICD_Demo_BPELProcessSOAP11Binding" type="client:MySoaCICD_Demo_BPELProcess">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <wsdl:operation name="process">
+   <soap:operation style="document"
+                   soapAction="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess/process"/>
+   <wsdl:input>
+    <soap:body use="literal" parts="payload"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:body use="literal" parts="payload"/>
+   </wsdl:output>
+  </wsdl:operation>
+ </wsdl:binding>
+ <wsdl:service name="MySoaCICD_Demo_BPELProcess">
+  <wsdl:port name="MySoaCICD_Demo_BPELProcessPort" binding="client:MySoaCICD_Demo_BPELProcessSOAP11Binding">
+   <soap:address location="http://www.example.com"/>
+  </wsdl:port>
+ </wsdl:service>
+</wsdl:definitions>

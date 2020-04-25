@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="0c0e5ca9-4470-451c-8d62-114ba10aa5fe" activeEnvironment="Default" name="MySoaCICD_Demo_BPELProcess" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="d81865da-928f-4348-9074-cddc75ebd504" wsaVersion="NONE" name="MySoaCICD_Demo_BPELProcessSOAP11Binding" type="wsdl" bindingName="{http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess}MySoaCICD_Demo_BPELProcessSOAP11Binding" soapVersion="1_1" anonymous="optional" definition="file:/E:/SOACICDWorkSpace/WorkSpace/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/SOA/WSDLs/MySoaCICD_Demo_BPELProcess.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\E:\SOACICDWorkSpace\WorkSpace\MySoaCICD_Demo_App\MySoaCICD_Demo_Prj\SOA\WSDLs\MySoaCICD_Demo_BPELProcess.wsdl"><con:part><con:url>file:\E:\SOACICDWorkSpace\WorkSpace\MySoaCICD_Demo_App\MySoaCICD_Demo_Prj\SOA\WSDLs\MySoaCICD_Demo_BPELProcess.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="MySoaCICD_Demo_BPELProcess" targetNamespace="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:client="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	TYPE DEFINITION - List of services participating in this BPEL process
+	The default output of the BPEL designer uses strings as input and 
+	output to the BPEL Process. But you can define or import any XML 
+	Schema type and use them as part of the message types.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess" schemaLocation="../Schemas/MySoaCICD_Demo_BPELProcess.xsd"/>
+    </schema>
+  </wsdl:types>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	MESSAGE TYPE DEFINITION - Definition of the message types used as 
+	part of the port type defintions
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <wsdl:message name="MySoaCICD_Demo_BPELProcessRequestMessage">
+    <wsdl:part name="payload" element="client:process"/>
+  </wsdl:message>
+  <wsdl:message name="MySoaCICD_Demo_BPELProcessResponseMessage">
+    <wsdl:part name="payload" element="client:processResponse"/>
+  </wsdl:message>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	PORT TYPE DEFINITION - A port type groups a set of operations into
+	a logical service unit.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!--portType implemented by the MySoaCICD_Demo_BPELProcess BPEL process-->
+  <wsdl:portType name="MySoaCICD_Demo_BPELProcess">
+    <wsdl:operation name="process">
+      <wsdl:input message="client:MySoaCICD_Demo_BPELProcessRequestMessage"/>
+      <wsdl:output message="client:MySoaCICD_Demo_BPELProcessResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	PARTNER LINK TYPE DEFINITION
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <plnk:partnerLinkType name="MySoaCICD_Demo_BPELProcess">
+    <plnk:role name="MySoaCICD_Demo_BPELProcessProvider" portType="client:MySoaCICD_Demo_BPELProcess"/>
+  </plnk:partnerLinkType>
+  <wsdl:binding name="MySoaCICD_Demo_BPELProcessSOAP11Binding" type="client:MySoaCICD_Demo_BPELProcess">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="process">
+      <soap:operation style="document" soapAction="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess/process"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="payload"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="payload"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MySoaCICD_Demo_BPELProcess">
+    <wsdl:port name="MySoaCICD_Demo_BPELProcessPort" binding="client:MySoaCICD_Demo_BPELProcessSOAP11Binding">
+      <soap:address location="http://www.example.com"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:\E:\SOACICDWorkSpace\WorkSpace\MySoaCICD_Demo_App\MySoaCICD_Demo_Prj\SOA\Schemas\MySoaCICD_Demo_BPELProcess.xsd</con:url><con:content><![CDATA[<schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess" xmlns="http://www.w3.org/2001/XMLSchema">
+  <element name="process">
+    <complexType>
+      <sequence>
+        <element name="input" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="processResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.example.com</con:endpoint></con:endpoints><con:operation id="b6af57b5-7a88-4385-b9ca-10d6c000daeb" isOneWay="false" action="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess/process" name="process" bindingOperationName="process" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d8c8fb93-e2cf-4140-aa18-cd52e1607bba" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.example.com</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mys="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <mys:process>\r
+         <mys:input>?</mys:input>\r
+      </mys:process>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess/process"/></con:call></con:operation></con:interface><con:testSuite id="592cca7f-e923-42ed-810b-692d83096935" name="MySoaCICD_Demo_BPELProcessSOAP11Binding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="8b300f42-c66e-4193-9179-1e2906edfda6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="process TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="23e4848c-01ba-436b-b029-0e090f82cbb8" name="process"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MySoaCICD_Demo_BPELProcessSOAP11Binding</con:interface><con:operation>process</con:operation><con:request name="process" id="f4ac9c59-d1f6-4fc6-9434-ff5b534fd987"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://manu:7005/soa-infra/services/default/MySoaCICD_Demo_Prj/mysoacicd_demo_bpelprocess_client_ep</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mys="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <mys:process>\r
+         <mys:input>India</mys:input>\r
+      </mys:process>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="364f5b1e-aca5-42b3-bda0-dbeb77e3b2f8" name="Contains"><con:configuration><token>India</token><ignoreCase>true</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://xmlns.oracle.com/MySoaCICD_Demo_App/MySoaCICD_Demo_Prj/MySoaCICD_Demo_BPELProcess/process" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
