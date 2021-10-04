@@ -1,156 +1,64 @@
 FORMAT: 1A
-# Polls
-Polls is a simple API allowing consumers to view polls and vote in them.
-## Question Collection [/questions]
-### List All Questions [GET]
-An action should include at least one response from the server
-which must include a status code and may contain a body.
-A response is defined as a list item within an action.
-Lists are created by preceding list items with either a +, * or -.
 
-This action returns a 200 status code along with a JSON body.
-+ Response 200
-        
+# Calci
+
+Does Arithmetic calculations.
+
+
+## Performs Addition [/add/{first_operand}/{second_operand}]
+
++ Parametrs
+
+    + first_operand (number) - Integer
+    + second_operand (number) - Integer
+
+### Addition [GET]
+
++ Response 200 (application/json)
+    
     + Body
-        
+            
             {
-                "question": "Favourite programming language?",
-                "published_at": "2014-11-11T08:40:51.620Z",
-                "url": "/questions/1",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "url": "/questions/1/choices/1",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "url": "/questions/1/choices/2",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "url": "/questions/1/choices/3",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "url": "/questions/1/choices/4",
-                        "votes": 256
-                    }
-                ]
+                "Response":8
             }
-### Create a New Question [POST]
-You may create your own question using this action.
-This action takes a JSON payload as part of the request.
-Response then return specific header and body.
+
+## Performs Substraction [/sub{?first_operand,second_operand}]
+
++ Parametrs
+
+    + first_operand (number) - Integer
+    + second_operand (number) - Integer
+
+### Substraction [GET]
+
++ Response 200 (application/json)
+    
+    + Body
+    
+            {
+                "Response":4
+            }
+
+## Performs Multiplication [/mul]
+
+### Multiplication [POST]
 
 + Request (application/json)
 
-    + Body
-    
+     + Body
+            
             {
-                "question": "Favourite programming language?",
-                "choices": [
-                    "Swift",
-                    "Python",
-                    "Objective-C",
-                    "Ruby"
-                ]
+                "Request":
+                    {
+                        "first_operand":0,
+                        "second_operand":9
+                    }
             }
-
+            
 + Response 201 (application/json)
 
-    + Headers
-
-            Location: /questions/1
-
     + Body
-
+    
             {
-                "question": "Favourite programming language?",
-                "published_at": "2014-11-11T08:40:51.620Z",
-                "url": "/questions/1",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "url": "/questions/1/choices/1",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "url": "/questions/1/choices/2",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "url": "/questions/1/choices/3",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "url": "/questions/1/choices/4",
-                        "votes": 0
-                    }
-                ]
-            }        
-## Question [/questions/{question_id}]
-
-+ Parameters
-    + question_id (number) - ID of the Question in the form of an integer
-    
-### View a Questions Detail [GET]
-
-+ Response 200 (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "published_at": "2014-11-11T08:40:51.620Z",
-            "url": "/questions/1",
-            "choices": [
-                {
-                    "choice": "Swift",
-                    "url": "/questions/1/choices/1",
-                    "votes": 2048
-                }, {
-                    "choice": "Python",
-                    "url": "/questions/1/choices/2",
-                    "votes": 1024
-                }, {
-                    "choice": "Objective-C",
-                    "url": "/questions/1/choices/3",
-                    "votes": 512
-                }, {
-                    "choice": "Ruby",
-                    "url": "/questions/1/choices/4",
-                    "votes": 256
-                }
-            ]
-        }
-## Question [/questions/{?question_id}]
-
-+ Parameters
-    + question_id (number) - ID of the Question in the form of an integer
-    
-### View a Questions Detail [GET]
-
-+ Response 200 (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "published_at": "2014-11-11T08:40:51.620Z",
-            "url": "/questions/1",
-            "choices": [
-                {
-                    "choice": "Swift",
-                    "url": "/questions/1/choices/1",
-                    "votes": 2048
-                }, {
-                    "choice": "Python",
-                    "url": "/questions/1/choices/2",
-                    "votes": 1024
-                }, {
-                    "choice": "Objective-C",
-                    "url": "/questions/1/choices/3",
-                    "votes": 512
-                }, {
-                    "choice": "Ruby",
-                    "url": "/questions/1/choices/4",
-                    "votes": 256
-                }
-            ]
-        }
+                "Response":3
+            }
